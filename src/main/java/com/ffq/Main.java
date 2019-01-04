@@ -1,5 +1,7 @@
 package com.ffq;
 
+import java.util.concurrent.Executors;
+
 /**
  * @Author: ffq
  * @Description:
@@ -8,7 +10,10 @@ package com.ffq;
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException {
         MyClassLoader classLoader = new MyClassLoader();
-        Class<?> people = Class.forName("com.ffq.People", true, classLoader);
-        System.out.println(people.getClassLoader());
+//        Class<?> people = Class.forName("com.ffq.People", true, classLoader);
+        Class<?> aClass = classLoader.loadClass("com.ffq.People");
+        System.out.println(aClass.getClassLoader());
+        System.out.println(ClassLoader.getSystemClassLoader());
+//        System.out.println(people.getClassLoader());
     }
 }
